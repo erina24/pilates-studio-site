@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { getMembersList } from '@/app/_libs/microcms';
 import styles from './page.module.css';
-import ButtonLink from '@/app/_components/ButtonLink';
+import { connection } from 'next/server';
 
 type Props = {
   searchParams: Promise<{
@@ -10,6 +10,7 @@ type Props = {
 };
 
 export default async function Page(props: Props) {
+  await connection();
   const searchParams = await props.searchParams;
   const data = await getMembersList({
     draftKey: searchParams.dk,
@@ -17,18 +18,21 @@ export default async function Page(props: Props) {
   return (
     <div className={styles.container}>
       {data.contents.length === 0 ? (
-        <p className={styles.empty}>メンバーが登録されていません。</p>
+        <p className={styles.empty}>インストラクターの情報は準備中です。</p>
       ) : (
         <ul>
           {data.contents.map((member) => (
             <li key={member.id} className={styles.list}>
-              <Image
-                src={member.image?.url as string}
-                alt=""
-                width={member.image?.width}
-                height={member.image?.height}
-                className={styles.image}
-              />
+              {member.image?.url &&
+                !/(?:simple|no-image)/i.test(decodeURIComponent(member.image.url)) && (
+                  <Image
+                    src={member.image.url}
+                    alt={`${member.name}の写真`}
+                    width={member.image.width || 480}
+                    height={member.image.height || 600}
+                    className={styles.image}
+                  />
+                )}
               <dl>
                 <dt className={styles.name}>{member.name}</dt>
                 <dd className={styles.position}>{member.position}</dd>
@@ -38,11 +42,6 @@ export default async function Page(props: Props) {
           ))}
         </ul>
       )}
-      <div className={styles.footer}>
-        <h2 className={styles.message}>We are hiring</h2>
-        <p>私たちは共にチャレンジする仲間を募集しています。</p>
-        <ButtonLink href="">採用情報へ</ButtonLink>
-      </div>
     </div>
   );
 }

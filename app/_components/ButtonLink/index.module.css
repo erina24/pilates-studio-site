@@ -1,19 +1,19 @@
 .button {
   display: block;
-  padding: 20px 40px;
-  border-radius: var(--border-radius);
-  width: 300px;
-  background: url('/arrow-right.svg') no-repeat right 20px center, var(--color-button-primary);
-  color: var(--color-text-unpainted);
+  width: fit-content;
+  max-width: 100%;
+  padding: 16px 28px;
+  border: 1px solid #d7c5ad;
+  border-radius: 8px;
+  background: #f5ead7;
+  color: #38291f;
+  text-align: center;
+  overflow-wrap: anywhere;
+  transition: background 0.2s;
 }
-
+.button::after {
+  content: ' →';
+}
 .button:hover {
-  opacity: 0.9;
-}
-
-@media (max-width: 640px) {
-  .button {
-    padding: 16px 24px;
-    width: 100%;
-  }
+  background: #ead9bd;
 }

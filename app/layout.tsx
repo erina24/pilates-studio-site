@@ -7,21 +7,19 @@ import styles from './layout.module.css';
 
 export async function generateMetadata(): Promise<Metadata> {
   const data = await getMeta();
-  if (!data) {
-    return {};
-  }
 
   return {
+    icons: { icon: '/icon.svg' },
     metadataBase: new URL(process.env.BASE_URL || 'http://localhost:3000'),
-    title: data.title,
-    description: data.description,
+    title: 'KOKYU PILATES',
+    description: data?.description || '呼吸からはじめる、ピラティス。KOKYU PILATESのスタジオ案内。',
     openGraph: {
-      title: data.ogTitle,
-      description: data.ogDescription,
-      images: [data.ogImage?.url || ''],
+      title: 'KOKYU PILATES',
+      description: data?.ogDescription,
+      images: ['/studio-hero.png'],
     },
     alternates: {
-      canonical: data.canonical,
+      canonical: data?.canonical,
     },
   };
 }

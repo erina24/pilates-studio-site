@@ -1,29 +1,18 @@
 .footer {
-  padding: 16px 24px;
+  padding: 40px 24px;
   text-align: center;
-  color: var(--color-text-sub);
+  color: #705a48;
   font-size: 0.8rem;
-  margin-top: 80px;
+  border-top: 1px solid #d7c5ad;
+  background: #f5ead7;
 }
-
 .nav {
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
-
 .items {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  font-size: 1rem;
-  white-space: nowrap;
-}
-
-@media (max-width: 640px) {
-  .items {
-    flex-wrap: wrap;
-    gap: 8px 0;
-  }
-  .item {
-    width: 50%;
-  }
+  flex-wrap: wrap;
+  gap: 16px 32px;
+  font-size: 0.95rem;
 }

@@ -1,10 +1,11 @@
+import ButtonLink from '@/app/_components/ButtonLink';
 import Hero from '@/app/_components/Hero';
 import styles from './not-found.module.css';
 
 export default function NotFound() {
   return (
     <>
-      <Hero title="404" sub="Not Found" />
+      <Hero title="404" sub="ページが見つかりません" />
       <div className={styles.container}>
         <dl>
           <dt className={styles.title}>ページが見つかりませんでした</dt>
@@ -14,6 +15,7 @@ export default function NotFound() {
             URLを再度ご確認ください。
           </dd>
         </dl>
+        <ButtonLink href="/">トップページへ戻る</ButtonLink>
       </div>
     </>
   );

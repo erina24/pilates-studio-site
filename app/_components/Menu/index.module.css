@@ -20,9 +20,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--color-bg-painted);
+    background-color: #38291f;
     color: var(--color-text-unpainted);
-    padding: 24px 16px;
+    padding: 80px 24px 24px;
+    overflow-y: auto;
   }
 
   .items {

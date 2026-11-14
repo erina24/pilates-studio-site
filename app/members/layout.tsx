@@ -2,9 +2,9 @@ import Hero from '@/app/_components/Hero';
 import Sheet from '@/app/_components/Sheet';
 
 export const metadata = {
-  title: 'メンバー｜シンプルなコーポレートサイト',
+  title: 'インストラクター | KOKYU PILATES',
   openGraph: {
-    title: 'メンバー｜シンプルなコーポレートサイト',
+    title: 'インストラクター | KOKYU PILATES',
   },
   alternates: {
     canonical: '/members',

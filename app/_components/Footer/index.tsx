@@ -4,23 +4,20 @@ import styles from './index.module.css';
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <nav className={styles.nav}>
+      <nav className={styles.nav} aria-label="フッター">
         <ul className={styles.items}>
           <li className={styles.item}>
-            <Link href="/news">ニュース</Link>
+            <Link href="/news">お知らせ</Link>
           </li>
           <li className={styles.item}>
-            <Link href="/members">メンバー</Link>
+            <Link href="/members">インストラクター</Link>
           </li>
           <li className={styles.item}>
-            <Link href="">採用情報</Link>
-          </li>
-          <li className={styles.item}>
-            <Link href="/contact">お問い合わせ</Link>
+            <Link href="/plans">料金・サービス</Link>
           </li>
         </ul>
       </nav>
-      <p>© SIMPLE. All Rights Reserved 2023</p>
+      <p>© KOKYU PILATES</p>
     </footer>
   );
 }

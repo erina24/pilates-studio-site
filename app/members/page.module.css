@@ -1,78 +1,55 @@
-.text {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
 .list {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 40px;
-  margin-bottom: 80px;
+  padding: 40px 0;
+  border-bottom: 1px solid #d7c5ad;
 }
-
-.list:nth-child(even) {
-  flex-direction: row-reverse;
+.list:first-child {
+  padding-top: 0;
 }
-
+.list:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
 .image {
   width: 240px;
   height: auto;
-  border-radius: var(--border-radius);
+  max-height: 340px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
 }
-
+.list dl {
+  min-width: 0;
+  flex: 1;
+}
 .name {
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  font-size: 1.75rem;
+  font-weight: 400;
 }
-
 .position {
-  margin-bottom: 8px;
+  margin: 8px 0 24px;
+  color: #705a48;
 }
-
 .profile {
-  font-size: 0.9rem;
+  line-height: 2;
+  white-space: pre-wrap;
 }
-
-.footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-top: 1px solid var(--color-border);
-  padding-top: 40px;
-  text-align: center;
-  gap: 24px;
-}
-
-.message {
-  font-size: 2rem;
-  font-weight: bold;
-}
-
 .empty {
-  margin-bottom: 40px;
+  padding: 24px 0;
+  text-align: center;
 }
-
 @media (max-width: 640px) {
-  .text {
-    text-align: left;
-  }
-
   .list {
-    display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     gap: 24px;
+    padding: 32px 0;
   }
-
-  .list:nth-child(even) {
-    flex-direction: column;
-  }
-
-  .name {
-    text-align: center;
-  }
-
-  .position {
-    text-align: center;
+  .image {
+    width: 100%;
+    max-height: 400px;
   }
 }

@@ -2,9 +2,9 @@ import Hero from '@/app/_components/Hero';
 import Sheet from '@/app/_components/Sheet';
 
 export const metadata = {
-  title: 'コンタクト｜シンプルなコーポレートサイト',
+  title: 'コンタクト｜KOKYU PILATES',
   openGraph: {
-    title: 'コンタクト｜シンプルなコーポレートサイト',
+    title: 'コンタクト｜KOKYU PILATES',
   },
   alternates: {
     canonical: '/contact',

@@ -11,16 +11,15 @@ export default function Menu() {
   const close = () => setOpen(false);
   return (
     <div>
-      <nav className={cx(styles.nav, isOpen && styles.open)}>
+      <nav
+        id="studio-navigation"
+        aria-label="メインナビゲーション"
+        className={cx(styles.nav, isOpen && styles.open)}
+      >
         <ul className={styles.items}>
           <li>
             <Link href="/news" onClick={close}>
-              ニュース
-            </Link>
-          </li>
-          <li>
-            <Link href="/business" onClick={close}>
-              事業内容
+              お知らせ
             </Link>
           </li>
           <li>
@@ -33,22 +32,17 @@ export default function Menu() {
               料金・サービス
             </Link>
           </li>
-          <li>
-            <Link href="" onClick={close}>
-              採用情報
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact" onClick={close}>
-              お問い合わせ
-            </Link>
-          </li>
         </ul>
         <button className={cx(styles.button, styles.close)} onClick={close}>
           <Image src="/close.svg" alt="閉じる" width={24} height={24} priority />
         </button>
       </nav>
-      <button className={styles.button} onClick={open}>
+      <button
+        className={styles.button}
+        onClick={open}
+        aria-expanded={isOpen}
+        aria-controls="studio-navigation"
+      >
         <Image src="/menu.svg" alt="メニュー" width={24} height={24} priority />
       </button>
     </div>

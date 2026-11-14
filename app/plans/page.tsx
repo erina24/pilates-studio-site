@@ -1,28 +1,43 @@
 import { connection } from 'next/server';
-import Hero from '@/app/_components/Hero';
-import Sheet from '@/app/_components/Sheet';
+import Image from 'next/image';
 import { getPlansList } from '../_libs/microcms';
+import styles from './page.module.css';
+
+export const metadata = { title: '料金・サービス | KOKYU PILATES' };
 
 export default async function PlansPage() {
-  await connection();  
+  await connection();
   const { contents: plans } = await getPlansList();
 
   return (
-    <>
-      <Hero title="Plans" sub="料金・サービス" />
-      <Sheet>
+    <div className={styles.page}>
+      <section className={styles.hero}>
+        <Image
+          className={styles.heroImage}
+          src="/studio-hero.png"
+          alt=""
+          fill
+          sizes="100vw"
+          priority
+        />
+        <h1 className={styles.title}>料金・サービス</h1>
+      </section>
+      <div className={styles.plans}>
         {plans.length === 0 ? (
-          <p>表示できるプランがありません。</p>
+          <p className={styles.empty}>表示できるプランがありません。</p>
         ) : (
           plans.map((plan) => (
-            <article key={plan.id}>
-              <h2>{plan.name}</h2>
-              <p>{plan.price?.toLocaleString('ja-JP') ?? '—'} 円</p>
-              <p>{plan.description}</p>
+            <article className={styles.plan} key={plan.id}>
+              <h2 className={styles.planName}>{plan.name}</h2>
+              <p className={styles.price}>
+                {plan.price?.toLocaleString('ja-JP') ?? '—'}
+                <span className={styles.currency}>円</span>
+              </p>
+              <p className={styles.description}>{plan.description}</p>
             </article>
           ))
         )}
-      </Sheet>
-    </>
+      </div>
+    </div>
   );
 }

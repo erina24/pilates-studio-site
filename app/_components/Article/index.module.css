@@ -223,3 +223,27 @@
     margin: 2.8rem 0 1rem;
   }
 }
+
+.title {
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.meta {
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin-bottom: 32px;
+}
+.content {
+  overflow-wrap: anywhere;
+}
+.content img,
+.content iframe,
+.content video {
+  max-width: 100%;
+}
+.content table {
+  display: block;
+  overflow-x: auto;
+}

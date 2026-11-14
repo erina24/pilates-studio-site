@@ -69,6 +69,7 @@ export const getNewsList = async (queries?: MicroCMSQueries) => {
   const listData = await client
     .getList<News>({
       endpoint: 'news',
+      customRequestInit: { cache: 'no-store' },
       queries,
     })
     .catch(notFound);
@@ -80,6 +81,7 @@ export const getNewsDetail = async (contentId: string, queries?: MicroCMSQueries
   const detailData = await client
     .getListDetail<News>({
       endpoint: 'news',
+      customRequestInit: { cache: 'no-store' },
       contentId,
       queries,
     })
@@ -118,6 +120,7 @@ export const getMembersList = async (queries?: MicroCMSQueries) => {
   const listData = await client
     .getList<Member>({
       endpoint: 'members',
+      customRequestInit: { cache: 'no-store' },
       queries,
     })
     .catch(notFound);
@@ -153,8 +156,10 @@ export type Plan = {
   description: string;
 };
 
-export const getPlansList = async () => {
+export const getPlansList = async (queries?: MicroCMSQueries) => {
   return client.getList<Plan>({
     endpoint: 'plans',
+    queries,
+    customRequestInit: { cache: 'no-store' },
   });
 };
