@@ -1,9 +1,11 @@
+import { connection } from 'next/server';
 import { getNewsList } from '@/app/_libs/microcms';
 import { NEWS_LIST_LIMIT } from '@/app/_constants';
 import NewsList from '@/app/_components/NewsList';
 import Pagination from '@/app/_components/Pagination';
 
 export default async function Page() {
+  await connection();
   const data = await getNewsList({
     limit: NEWS_LIST_LIMIT,
   });

@@ -1,3 +1,4 @@
+import { connection } from 'next/server';
 import Image from 'next/image';
 import { getNewsList } from '@/app/_libs/microcms';
 import { TOP_NEWS_LIMIT } from '@/app/_constants';
@@ -6,6 +7,7 @@ import styles from './page.module.css';
 import ButtonLink from '@/app/_components/ButtonLink';
 
 export default async function Page() {
+  await connection();
   const data = await getNewsList({
     limit: TOP_NEWS_LIMIT,
   });
@@ -13,9 +15,9 @@ export default async function Page() {
     <>
       <section className={styles.top}>
         <div>
-          <h1 className={styles.title}>テクノロジーの力で世界を変える</h1>
+          <h1 className={styles.title}>呼吸からはじめる、ピラティス</h1>
           <p className={styles.description}>
-            私たちは市場をリードしているグローバルテックカンパニーです。
+            初めての方も、自分のペースで。呼吸と基本の動きから始めるピラティススタジオです。
           </p>
         </div>
         <Image
@@ -69,7 +71,7 @@ export default async function Page() {
               <h2 className={styles.sectionTitleEn}>About Us</h2>
               <p className={styles.sectionTitleJa}>私たちについて</p>
               <p className={styles.sectionDescription}>
-                「テクノロジーの力で世界を変える」をミッションに掲げ、日々活動をしています。
+                「呼吸からはじめる、ピラティス」をミッションに掲げ、日々活動をしています。
               </p>
               <dl className={styles.info}>
                 <dt className={styles.infoTitle}>社名</dt>

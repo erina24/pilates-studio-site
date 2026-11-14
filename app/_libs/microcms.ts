@@ -146,3 +146,15 @@ export const getMeta = async (queries?: MicroCMSQueries) => {
 
   return data;
 };
+
+export type Plan = {
+  name: string;
+  price: number;
+  description: string;
+};
+
+export const getPlansList = async () => {
+  return client.getList<Plan>({
+    endpoint: 'plans',
+  });
+};

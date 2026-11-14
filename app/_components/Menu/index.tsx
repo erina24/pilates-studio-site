@@ -25,7 +25,12 @@ export default function Menu() {
           </li>
           <li>
             <Link href="/members" onClick={close}>
-              メンバー
+              インストラクター
+            </Link>
+          </li>
+          <li>
+            <Link href="/plans" onClick={close}>
+              料金・サービス
             </Link>
           </li>
           <li>
